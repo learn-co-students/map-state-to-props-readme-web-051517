@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './App.css';
+
 
 class App extends Component {
 
@@ -21,4 +23,13 @@ class App extends Component {
   }
 };
 
-export default App;
+//mapStateToProps
+// (1) a function that listens to every change in the store and
+// (2) filters out the changes relevant to a particular component
+// (3) provide to that component
+
+const mapStateToProps = (state) => {
+  return { items: state.items }
+}
+
+export default connect(mapStateToProps)(App);
